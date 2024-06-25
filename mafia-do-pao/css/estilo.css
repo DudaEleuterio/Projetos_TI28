@@ -1,0 +1,29 @@
+body{
+    background-color: purple;
+}
+
+/* CONTAINER GLOBAL */
+.container-global{
+    display: flex;
+    justify-content: center;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column wrap;
+    width: 300px;
+    height: 400px;
+    background-color: rgba(145, 142, 142, 0.596);
+    border-radius: 20px;
+    color: aliceblue;
+    font-size: 22px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
+
+.formulario input{
+    height: 26px;
+    border-radius: 15px;
+    border: aliceblue 1px solid;
+}
