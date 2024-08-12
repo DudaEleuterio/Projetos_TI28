@@ -1,6 +1,6 @@
 <?php
 include('conectadb.php');
-
+include('topo.php');
 //COLETAR O VLOR ID LÁ DA URL
 $id = $_GET['id'];
 $sql = "SELECT * FROM tb_clientes WHERE cli_id = '$id'";
@@ -46,14 +46,14 @@ $retorno = mysqli_query($link, $sql);
 </head>
 <body>
     <!-- BOTÃO VOLTAR -->
-<a href="cliente-lista.php"><img src="icons/Navigation-left-01-256.png" width="25" height="25"></a>
+
 
     <div class="container-global">
         
         <form class="formulario" action="cliente-altera.php" method="post">
             <input type="hidden" name="id" value="<?= $id?>">
             <label>CPF</label>
-            <input type="text" id="cpf" name='txtcpf' placeholder="000.000.000-00" maxlength="14" oninput="formatarCPF(this)" value="<?= $cpf?>">
+            <input type="text" id="cpf" name='txtcpf' placeholder="000.000.000-00" maxlength="14" oninput="formatarCPF(this)" value="<?= $cpf?>" disabled>
             <br>
             <label>NOME</label>
             <input type="txtnome" name="txtnome" placeholder="digite seu nome" value="<?= $nome?>" required>
@@ -65,9 +65,11 @@ $retorno = mysqli_query($link, $sql);
             <input type="text" name="txtcel" id="telefone" placeholder="(00) 00000-0000" maxlength="15"  value="<?= $cel?>" required>
             <br>
 
-            <!-- SELETOR DE ATIVO E INATIVO -->
+            <div class="bullets">
+                <!-- SELETOR DE ATIVO E INATIVO -->
              <input type="radio" name="status"  value="1" <?= $status == '1'?"checked" : ""?>>ATIVO
              <input type="radio" name="status" value="0"<?= $status == '0'?"checked" : ""?>>INATIVO
+            </div>
              
             <br>
             <br>

@@ -1,5 +1,6 @@
 <?php
 include('conectadb.php');
+include('topo.php');
 // include('header.php');
 
 // CONSULTA USUARIOS CADASTRADOS
@@ -21,7 +22,7 @@ $status = '1';
     <title>LISTA DE USUARIOS</title>
 </head>
 <body>
-<a href="backoffice.php"><img src="icons/Navigation-left-01-256.png" width="16" height="16"></a>
+
 
     <div class="container-listausuarios">
         <!-- FAZER DEPOIS DO ROLÊ -->

@@ -1,6 +1,6 @@
 <?php
 include('conectadb.php');
-
+include('topo.php');
 //COLETAR O VLOR id LÁ DA URL
 $id = $_GET['id'];
 $sql = "SELECT * FROM tb_usuarios WHERE usu_id = '$id'";
@@ -41,7 +41,7 @@ $retorno = mysqli_query($link, $sql);
 </head>
 <body>
     <!-- BOTÃO VOLTAR -->
-<a href="usuario-lista.php"><img src="icons/Navigation-left-01-256.png" width="25" height="25"></a>
+
 
     <div class="container-global">
         

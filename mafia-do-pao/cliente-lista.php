@@ -1,11 +1,27 @@
 <?php
 include('conectadb.php');
+include('topo.php');
+
 // include('header.php');
 
 // CONSULTA USUARIOS CADASTRADOS
 $sql = "SELECT *  FROM tb_clientes WHERE cli_status = '1'";
 $retorno = mysqli_query($link, $sql);
 $status = '1';
+
+//ENVIANDO PARA O SERVIDOR O SELETOR RADIO EM 0 OU 1
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $status  = $_POST['status'];
+    if($status == '1'){
+        $sql = "SELECT * FROM tb_clientes WHERE cli_status = '1'";
+        $retorno = mysqli_query($link, $sql);
+        $status = '1';
+    }
+    else{
+        $sql = "SELECT *  FROM tb_clientes WHERE cli_status = '0'";
+        $retorno = mysqli_query($link, $sql);
+    }
+}
 
 
 ?>
@@ -21,13 +37,21 @@ $status = '1';
     <title>CLIENTE LISTA</title>
 </head>
 <body>
-<a href="backoffice.php"><img src="icons/Navigation-left-01-256.png" width="16" height="16"></a>
+    
 
     <div class="container-listacliente">
         <!-- FAZER DEPOIS DO ROLÊ -->
-        <form>
+        <form action="cliente-lista.php" method="post">
+            <input type="radio" name="status" value="1" required onclick="submit()"
+            <?= $status=='1' ? "checked" : ""?>> ATIVOS
+            <br>
+            <input type="radio" name="status" value="0" required onclick="submit()"
+            <?= $status=='0' ? "checked" : ""?>> INATIVOS
+            <br>
 
         </form>
+
+
         <!-- LISTAR A TABELA DE USUARIOS -->
         <table class="lista">
             <tr>
@@ -49,7 +73,7 @@ $status = '1';
                     <td><?=$tbl[2]?></td> <!-- COLETA O NOME DO USUARIO-->
                     <td><?=$tbl[3]?></td> <!-- COLETA O EMAIL DO USUARIO-->
                     <td><?=$tbl[4]?></td> <!-- COLETA O TELEFONE DO USUARIO-->
-                    <td><?=$tbl[5]?></td> <!-- COLETA O STATUS DO USUARIO-->
+                    <td><?=$tbl[5] == '1' ?"ATIVO":"INATIVO" ?></td> <!-- COLETA O STATUS DO USUARIO-->
                     
                     <td><a href="cliente-altera.php?id=<?=$tbl[0]?>">
                             <input type="button" value="ALTERAR">

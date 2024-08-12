@@ -19,7 +19,7 @@ $nomeusuario = $_SESSION['nomeusuario'];
             <?php 
                 if ($nomeusuario != null){
                 ?>
-                <li class="perfil"><label>BEM VINDO <?= strtoupper ($nomeusuario)?></label></li>
+                <label>BEM VINDO <?= strtoupper ($nomeusuario)?></label>
                 <?php
                 }
                 else {
@@ -28,7 +28,7 @@ $nomeusuario = $_SESSION['nomeusuario'];
                 }
                 ?>
 
-            <a href="logout.php"><img src="icons/Exit-02-WF-256.png" width="50" height="50"></a>
+            <a href="login.php"><img src="icons/Exit-02-WF-256.png" width="50" height="50"></a>
         </div>
   
         <!-- BOTÕES DE MENU -->
