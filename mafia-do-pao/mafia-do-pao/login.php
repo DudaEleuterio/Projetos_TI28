@@ -67,6 +67,8 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
             <br>
             <br>
             <input type="submit" value="ACESSAR">
+            <br>
+            <a href="recuperasenha.php"> ESQUECI MINHA SENHA </a>
     </form>
 
     </div>

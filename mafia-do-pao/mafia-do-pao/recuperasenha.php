@@ -1,7 +1,7 @@
 <?php
 
-use PHPMailer/PHPMailer/PHPMailer;
-use PHPMailer/PHPMailer/Exception; // para usar a pasta e comandos do PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception; // para usar a pasta e comandos do PHPMailer
 
 require 'PHPMail/src/Exception.php';
 require 'PHPMail/src/PHPMailer.php';
@@ -44,8 +44,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             $mail->send();
             echo "<script>window.alert('EMAIL ENVIADO COM SUCESSO!')";
         }
-        cath(Exception $e){
-            echo "NÃO FOI POSSIVEL ENVIAR A MENSAGEM: {$mail->ErroInfo}";l
+        catch(Exception $e){
+            echo "NÃO FOI POSSIVEL ENVIAR A MENSAGEM: {$mail->ErroInfo}";
         }
     }
 }
