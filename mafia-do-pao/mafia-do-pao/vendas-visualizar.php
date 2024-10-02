@@ -35,25 +35,27 @@ $retorno = mysqli_query($link, $sql);
         <tr>
             <th>ID</th>
             <th>Nome Produto</th>
+            <th>Produto</th>
             <th>Valor Unitário</th>
             <th>Quantidade</th>
             <th>Valor Total</th>
-            <th>Cliente</th>
             <th>Data da Venda</th>
         </tr>
     </thead>
-    <tbody>
-        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+    <body>
+        <?php while($tbl = mysqli_fetch_array($retorno)) { ?>
             <tr>
-                <td><?=$tbl[0];?></td>
-                <td><?=$tbl[1];?></td>
-                <td><?=$tbl[3];?></td>
-                <td><?=$tbl[4];?></td>
-                <td><?=$tbl[5];?></td>
-                <td><?=$tbl[];?></td>
+                <td><?=$tbl[0]?></td>
+                <td><?=$tbl[1]?></td>
+                <td><img src='data:image/jpeg;base64,<?= $tbl[2]?>'width="100" height="100"></td> <!-- COLETA A IBAGEM -->
+                <td><?=$tbl[3]?></td>
+                <td><?=$tbl[4]?></td>
+                <td><?=$tbl[5]?></td>
+                <td><?=$tbl[9]?></td>
+
             </tr>
         <?php } ?>
-    </tbody>
+    </body>
 </table>
     
 

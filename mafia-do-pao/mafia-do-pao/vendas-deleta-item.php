@@ -5,7 +5,8 @@
     $sqldeleta = "DELETE FROM tb_item_venda WHERE iv_id = $idiv";
     $resultado = mysqli_query($link, $sqldeleta);
  
-    header("Location: vendas.php")
+    header("Location: vendas.php");
+
  
  
  

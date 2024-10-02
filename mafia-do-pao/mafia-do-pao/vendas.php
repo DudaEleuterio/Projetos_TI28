@@ -8,6 +8,19 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
     //QUEBRAR A VARIÁVEL PRODUTO EM 3 OUTARS VARIÁVEIS
     list($idproduto, $nomeproduto, $valorproduto) = explode(',', $produto);
     $qtditem = $_POST['qtditem'];
+
+    #VERIFICANDO SE TEM PRODUTO NO ESTOQUE
+    $sqlcontarproduto = "SELECT pro_quantidade FROM tb_produtos WHERE pro_id = $idproduto";
+    $retornocontagem = mysqli_query($link, $sqlcontarproduto);
+    while ($tblcontagem = mysqli_fetch_array($retornocontagem)){
+        $contagem = $tblcontagem[0];
+    }
+    if($qtditem > $contagem){
+        echo"<script>window.alert('QUANTIDADE INSUFICIENTE NO ESTOQUE. QTD ATUAL: $contagem');</script>";
+        echo"<script>window.location.href='vendas.php';</script>";
+    }else{
+
+
     //CALCULAR O VALO DOS ITENS
     $valorlista = $valorproduto * $_POST['qtditem'];
  
@@ -27,7 +40,22 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
         VALUES ($valorlista,$qtditem,'$codigo_itemvenda',$idproduto,'1')";
        
             mysqli_query($link, $sqlitem);
-        } else { # SE O CARRINHO JA EXISTIR, RETORNA O NÚMERO IV_COD_IV ATIVO E INSERE MAIS ITENS NA VENDA
+        } else {
+         # SE O CARRINHO JA EXISTIR, RETORNA O NÚMERO IV_COD_IV ATIVO E INSERE MAIS ITENS NA VENDA
+
+         //VERIFICAÇÃO DE ADICIONANDO MAIS ITENS, SE TEM NO ESTOQUE
+         $sqlcontarproduto2 = "SELECT SUM(iv_quantidade) FROM tb_item_venda WHERE fk_pro_id = $idproduto AND iv_status = 1";
+         $retornopro = mysqli_query($link, $sqlcontarproduto2);
+         while ($tblpro = mysqli_fetch_array($retornopro)){
+            $proadd = $tblpro[0];
+         }
+         if (($proadd + $qtditem) > $contagem) {
+            $contagem2 = $contagem - $qtditem;
+            echo"<script>window.alert('QUANTIDADE INSUFICIENTE NO ESTOQUE. QTD ATUAL: $contagem2');</script>";
+            echo"<script>window.location.href='vendas.php';</script>";
+         }
+         else{////
+
             $sql = "SELECT iv_cod_iv FROM tb_item_venda WHERE iv_status = 1";
             $carrinhoaberto = mysqli_query($link, $sql);
  
@@ -37,10 +65,12 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
  
             //INSERINDO O ITEM NA VENDA
             $sqlitem = "INSERT INTO tb_item_venda(iv_valortotal, iv_quantidade, iv_cod_iv, fk_pro_id, iv_status)
-        VALUES ($valorlista,$qtditem,'$codigo_itemvenda_ok',$idproduto,'1')";
+         VALUES ($valorlista,$qtditem,'$codigo_itemvenda_ok',$idproduto,'1')";
             mysqli_query($link, $sqlitem);
         }
     }
+    }
+}
 }
  
 #SELEÇÃO DE ITENS
@@ -91,7 +121,8 @@ $retorno = mysqli_query($link, $sqllistapro);
             </select>
             <br>
             <label>QUANTIDADE</label>
-            <input type="deciaml" name="qtditem">
+            <input type="number" name="qtditem" step="0.01" min="0" required oninput="this.value.replace(/[^0-9]/g, '');">
+            <!-- impede que coloque numero <0 e caracteres sem ser numericos -->
             <br>
             <input type="submit" name="CONFIRMAR">
         </form>
@@ -102,8 +133,8 @@ $retorno = mysqli_query($link, $sqllistapro);
                 <tr>
                     <th>ID</th>
                     <th>NOME PRODUTO</th>
-                    <th>VALOR UN.</th>
                     <th>QUANTIDADE</th>
+                    <th>VALOR UN.</th>
                     <th>IMAGEM</th>
                     <th>DELETAR</th>
                 </tr>
@@ -114,10 +145,11 @@ $retorno = mysqli_query($link, $sqllistapro);
                 <tr>
                     <td><?= $tbl[0] ?></td> <!--COLETA ID-->
                     <td><?= $tbl[1] ?></td> <!--COLETA NOME-->
-                    <td><?= $tbl[3] ?></td> <!--COLETA QTD-->
-                    <td><?= $tbl[4] ?></td> <!--COLETA VALOR UNITÁRIO-->
+                    <td><?= $tbl[4] ?></td> <!--COLETA QTD-->
+                    <td><?= $tbl[3] ?></td> <!--COLETA VALOR UNITÁRIO-->
+                    
                     <td><img src='data:image/jpeg;base64,<?= $tbl[2] ?>' width="200" height="200"></td> <!--COLETA IMG-->
-                    <td><a href="venda-deleta-item.php?id=<?= $tbl[6] ?>">
+                    <td><a href="vendas-deleta-item.php?id=<?= $tbl[6] ?>">
                             <input type="button" value="EXCLUIR">
                         </a>
                     </td>
@@ -132,11 +164,14 @@ $retorno = mysqli_query($link, $sqllistapro);
             </table>
         </div>
     </div>
-    <!-- FORMULARIO FINAL DE NOME E ENVIO-->
+    <!-- FORMULARIO FINAL DE ENVIO-->
      <br>
      <br>
     <div class="container-global">
         <form class="formulario" action="vendas-finalizar.php" method="POST">
+            <label>CUPOM</label>
+            <input type="text" id="codigo" name='codigo' placeholder="digite o codigo do cupom" maxlength="14">
+            <br>
             <label>SELECIONE O CLIENTE</label>
             <select name="nomecliente">
                 <!-- PUXAR OS NOMES DOS CLIENTES-->

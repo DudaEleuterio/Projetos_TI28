@@ -4,12 +4,15 @@ include('topo.php');
 //COLETAR O VLOR id LÁ DA URL
 $id = $_GET['id'];
 $sql = "SELECT * FROM tb_usuarios WHERE usu_id = '$id'";
+
 $retorno = mysqli_query($link, $sql);
     while($tbl = mysqli_fetch_array($retorno)){
         $login = $tbl[1];
         $email = $tbl[2];
         $senha = $tbl[3];
+        $senha2 = $tbl[3]; //caso usuario não altere a senha
         $status = $tbl[4];
+        $tempero = $tbl[5]; //add tempero
     }
 
     //BORA FAZER O UPDATE??
@@ -18,8 +21,16 @@ $retorno = mysqli_query($link, $sql);
         $senha = $_POST['txtsenha'];
         $email = $_POST['txtemail'];
         $status = $_POST['status'];
+        $tempero = $_POST['tempero']; //add tempero
+        $senha2 = $_POST['txtsenha2']; // add senha2
 
-        $sql = "UPDATE tb_usuarios SET usu_senha = '$senha', usu_email = '$email', usu_status = '$status' WHERE usu_id = $id";
+        ///
+        //verifica se a senha foi alterada, caso seja, refazer md5
+        if($senha2 != $senha){
+            $senha = md5($tempero . $senha);
+        }
+
+        $sql = "UPDATE tb_usuarios SET usu_senha = '$senha', usu_email = '$email', usu_status = '$status', tempero = '$tempero' WHERE usu_id = $id";
         mysqli_query($link, $sql);
         echo"<script>window.alert('USUARIO ALTERADO COM SUCESSO!');</script>";
         echo"<script>window.location.href='usuario-lista.php';</script>";
@@ -47,6 +58,9 @@ $retorno = mysqli_query($link, $sql);
         
         <form class="formulario" action="usuario-altera.php" method="post">
             <input type="hidden" name="id" value="<?= $id?>">
+            <input type="hidden" name="tempero" value="<?= $tempero?>">
+            <input type="hidden" name="senha2" value="<?= $senha2?>">
+
             <label>LOGIN</label>
             <input type="text" name="txtlogin" value="<?= $login?>"  placeholder="Digite seu nome" required>
             <br>

@@ -6,6 +6,12 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
     $login = $_POST['txtlogin'];
     $senha = $_POST['txtsenha'];
 
+    //Verificação do md5(tempero)
+    $sqltempero = "SELECT tempero FROM tb_usuarios WHERE usu_login = '$login' AND usu_status = '1'";
+    $retornotempero = mysqli_query($link, $sqltempero);
+    $tempero = mysqli_fetch_array($retornotempero)[0];
+    $senha = md5($tempero . $senha); //criptografa a senha
+
     // COMEÇA VALIDAR BANCO DE DADOS
     $sql = "SELECT COUNT(usu_id) FROM tb_usuarios
     WHERE usu_login = '$login' AND usu_senha = '$senha' AND
