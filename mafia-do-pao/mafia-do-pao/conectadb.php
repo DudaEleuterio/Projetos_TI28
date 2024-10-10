@@ -13,3 +13,4 @@ $senha = "";
 
 // LINK QUE A FERRAMENTA VAI USAR PARA CONECTAR NO BANCO
 $link = mysqli_connect($servidor, $usuario, $senha, $banco);
+
