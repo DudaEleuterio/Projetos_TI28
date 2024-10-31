@@ -1,0 +1,357 @@
+body {
+    background-image: url(img/gifunha.gif);
+    background-repeat: no-repeat;
+    background-size: 1920px 1300px;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+header {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f0f0f049;
+    padding: 20px;
+    text-align: center;
+    color: #000000;
+}
+ 
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+ 
+nav li {
+    display: inline-block;
+    margin: 0 10px;
+    text-align: center;
+}
+nav li a{
+    font-family:'Courier New', Courier, monospace;
+    font-size: 20px;
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    text-align: center;
+}
+
+main h2{
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main p{
+    color:white;
+    padding: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom:0%;
+}
+
+main {
+    color: white;
+    padding: 20px;
+}
+
+.topo{
+    display: flex;
+    justify-content: space-between;
+
+    background-color: pink;
+    height: 50px;
+    width: auto;
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+}
+
+.topo label{
+    font-size: 30px;
+    color: #ffffff;
+}
+
+/* SAIR */
+.topo a{
+    width: 40px;
+    height: 40px;
+}
+
+.Fibra-De-Vidro{
+    color: black;
+    font-family: Juicebox;
+    src: url(font/Juicebox.otf);
+    font-size: 20px;
+}
+
+.Esmaltação-em-gel{
+    color: black;
+    font-family: Juicebox;
+    src: url(font/Juicebox.otf);
+    font-size: 20px;
+}
+
+.Banho-de-Gel{
+    color: black;
+    font-family: Juicebox;
+    src: url(font/Juicebox.otf);
+    font-size: 20px;
+}
+
+.container-Unhas img{
+        border-radius: 80px;
+}
+
+.container-Unhas{
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
+    color: rgb(247, 238, 238);
+    font-style: italic;
+    text-align: center;
+}
+#servicos {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .servicos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .servicos {
+    padding: 10px;
+    margin: 20px;
+    width: 55px;
+}
+
+.social{
+    float: right;
+    color: rgb(0, 0, 0) ;
+}
+
+
+.logo{
+    float: left;
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+      
+}
+
+.nails {
+    color: white;
+    float: left;
+    position: absolute;
+    top: 5%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.container-logo{
+height: 30px;
+margin-right: 40px;
+margin-top: 0px;
+margin-left: 5px;
+}
+
+.Nome {
+    display: flex;
+    justify-content: center;
+    font-family: Agreloy;
+    src: url(font/Agreloy.otf);
+    color:pink;
+    font-size: 33px;
+    
+}
+
+h1{
+    color: black;
+    padding: 20px;
+    text-align: center;
+    
+}
+
+
+.conteudo{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin-bottom: 100px;
+}
+.conteudo h2{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin-bottom: 100px;
+    src: url(font/Juicebox.otf);
+    font-size: 55px;
+    color: white;
+    font-family: Juicebox;
+}
+.textointro{
+    display: flex;
+    justify-content: start;
+    flex-flow: column;
+    text-align: center;
+    src: url(font/Juicebox.otf);
+    font-size: 24px;
+    font-family: Juicebox;
+    color: rgb(209, 186, 186);
+    width: 800px;
+    height: 800px;
+}
+
+
+.modelos button{
+    background-color: white ;
+    color: black;
+    font-family: Juicebox;
+    src: url(font/Juicebox.otf);
+    font-size: 20px;
+    margin-top: 10px;
+    width: 125px;
+    height: 50px;
+    float: left;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.menu{
+    display: flex;
+    justify-content: space-evenly;
+    align-content:center;
+    flex-flow: row wrap;
+    margin-top: 30px;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.menu a{
+    background-color: pink;
+    width: 300px;
+    height: 300px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    transition: transform .2s;
+}
+
+.menu a:hover{
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.menu img{
+    border-radius: 20px;
+}
+
+  
+  .menu .tooltiptext {
+    margin-top: 260px ;
+    width: 200px;
+    background-color: rgba(109, 109, 109, 0.473);
+    color: #020202;
+    font-size: medium;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  .fundo img{
+    float: left;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px;
+  }
+  
+.agendamento button{
+    background-color: white;
+    color: black;
+    font-family: Juicebox;
+    src: url(font/Juicebox.otf);
+    font-size: 20px;
+    margin-top: 10px;
+    width: 125px;
+    height: 50px;
+    float: left;
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+  }
+
+.carousel-caption{
+    font-size: 30px;
+    float: left;
+    top: 30%;
+  }
+
+.carousel-caption b{
+    color: black;
+    font-family: Juicebox;
+    src: url(font/Juicebox.otf);
+}
+
+/* CONTAINER GLOBAL */
+.container-global{
+    display: flex;
+    justify-content: center;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin-top: 200px;
+    width: 350px;
+    height: 600px;
+    color: white;
+    border-radius: 10px;
+    font-size: 22px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    backdrop-filter: blur(3px);
+}
+
+.formulario:hover{
+    backdrop-filter: blur(5000px);
+    background: #bbbbbb ;
+    box-shadow: 0px 0px 50px 0px;
+    
+}
+  
+
+
+
+   
+
+   
+
+  
+  
+  
+ 
+

@@ -1,0 +1,109 @@
+body {
+    background-image: url(img/fundo3.png);
+    background-repeat: no-repeat;
+    background-size: 1980px 1200px;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+header {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f0f0f049;
+    padding: 20px;
+    text-align: center;
+    color: #000000;
+}
+.fundo img{
+    float: left;
+    position: absolute;
+    top: 60%;
+    left: 48.6%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px;
+  }
+  .rodape{
+    background-color: #000000;
+    display: flex;
+    width: 1903px;
+    height: 300px;
+    
+}
+
+.rodape p{
+    color: white;
+}
+.rodape  h2{
+    float: left;
+    position: absolute;
+    top: 82%;
+    left: 7%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.conteudo h2{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin-bottom: 100px;
+    src: url(font/Juicebox.otf);
+    font-size: 55px;
+    color: black;
+    font-family: Juicebox;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+ 
+nav li {
+    display: inline-block;
+    margin: 0 10px;
+    text-align: center;
+}
+nav li a{
+    font-family:'Courier New', Courier, monospace;
+    font-size: 20px;
+    display: inline-block;
+    margin: 0 10px;
+    color: black;
+    text-align: center;
+}
+h2{
+    float: left;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.conteudo h2{
+    float: left;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.item h3{
+    float: left;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-family: monospace;
+    font-size: 25px;
+}
+
+b{
+    float: left;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(173, 167, 167);
+}

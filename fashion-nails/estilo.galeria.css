@@ -1,0 +1,66 @@
+body {
+    background-image: url(img/fundoservico.png);
+    font-family: Juicebox;
+    src: url(font/Juicebox.otf);
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    background-color: #f0f0f049;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+ 
+nav li {
+    display: inline-block;
+    margin: 0 10px;
+}
+nav li a{
+    font-family: Juicebox;
+    src: url(font/Juicebox.otf);
+    font-size: 20px;
+    display: inline-block;
+    margin: 0 10px;
+    color: black;
+}
+
+main {
+    padding: 20px;
+}
+
+
+.servico {
+    background: white;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rodape-container {
+    text-align: center;
+    padding: 10px 0;
+    background-color:pink;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+h1{
+    color: black;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 24px;
+}
+
+

@@ -1,0 +1,42 @@
+body {
+    background-image: url(img/gifunha.gif);
+    background-repeat: no-repeat;
+    background-size: 1920px 1300px;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+header {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f0f0f049;
+    padding: 20px;
+    text-align: center;
+    color: #000000;
+}
+.container-global{
+    display: flex;
+    justify-content: center;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin-top: 200px;
+    width: 350px;
+    height: 500px;
+    background-color: #f0f0f049;
+    color: white;
+    border-radius: 15px;
+    font-size: 22px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    backdrop-filter: blur(3px);
+}
+
+.formulario:hover{
+    backdrop-filter: blur(5000px);
+    box-shadow: 0px 0px 50px 0px;
+}
